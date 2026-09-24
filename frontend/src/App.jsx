@@ -116,6 +116,7 @@ function App() {
             <li>✓ Drops EXIF & APP1 without pixel degradation</li>
             <li>✓ Wipes PDF XMP & Author tags in RAM</li>
             <li>✓ No temporary files, zero logging</li>
+            <li>✓ 100% Forever Free & Open Source</li>
           </ul>
         </header>
 
