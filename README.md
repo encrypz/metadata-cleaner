@@ -21,7 +21,6 @@
 
 - **Backend**: Python / FastAPI
 - **Frontend**: React.js / Vite
-- **Deployment**: Configured for Heroku (Single dyno serving a compiled static frontend + API)
 
 ---
 
@@ -66,35 +65,6 @@ npm run dev
 *The frontend will typically be available at `http://localhost:5173`. Any files dropped here will be routed locally to your FastAPI backend on port 8000.*
 
 ---
-
-## 🌐 Heroku Deployment
-
-This repository is configured to be easily deployed to Heroku as a single full-stack application. The FastAPI backend is configured in `main.py` to statically serve the compiled React frontend from the `frontend/dist` directory.
-
-### Build & Deploy Steps:
-
-1. **Build the Frontend for Production:**
-   ```bash
-   cd frontend
-   npm run build
-   ```
-2. **Commit the Build:**
-   Ensure the `frontend/dist` folder is committed to your git repository.
-   ```bash
-   cd ..
-   git add .
-   git commit -m "Build frontend for deployment"
-   ```
-3. **Deploy to Heroku:**
-   ```bash
-   heroku create your-app-name
-   git push heroku master
-   ```
-
-*Heroku will read the `Procfile` and `requirements.txt` to automatically provision the Python environment and start the `uvicorn` server.*
-
----
-
 ## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
