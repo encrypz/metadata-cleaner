@@ -127,7 +127,8 @@ function App() {
             The ultimate privacy-first metadata stripper for JPEGs, PNGs, WebPs, and PDFs. All processing is executed completely in-memory. Files are never written to disk.
           </p>
           <ul className="hero-checklist">
-            <li>✓ Drops EXIF, XMP & AI Prompts (Midjourney, Stable Diffusion)</li>
+            <li>✓ Drops EXIF, XMP & AI Prompts (ChatGPT, Gemini, Midjourney, Stable Diffusion)</li>
+            <li>✓ Wipes C2PA Content Credentials & SynthID watermarks</li>
             <li>✓ Wipes PDF XMP & Author tags in RAM</li>
             <li>✓ No temporary files, zero logging</li>
             <li>✓ 100% Forever Free & Open Source</li>
