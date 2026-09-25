@@ -44,7 +44,7 @@ function App() {
       const file = files[i];
       setMessage(`Scrubbing metadata from ${file.name} (${i + 1}/${files.length})...`);
 
-      const validTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+      const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
       if (!validTypes.includes(file.type)) {
         errorCount++;
         continue;
@@ -124,10 +124,10 @@ function App() {
             Scrub Metadata.<br /> <span className="text-gradient">Leave No Trace.</span>
           </h1>
           <p className="hero-subline">
-            The ultimate privacy-first metadata stripper for JPEGs, PNGs, and PDFs. All processing is executed completely in-memory. Files are never written to disk.
+            The ultimate privacy-first metadata stripper for JPEGs, PNGs, WebPs, and PDFs. All processing is executed completely in-memory. Files are never written to disk.
           </p>
           <ul className="hero-checklist">
-            <li>✓ Drops EXIF & APP1 without pixel degradation</li>
+            <li>✓ Drops EXIF, XMP & AI Prompts (Midjourney, Stable Diffusion)</li>
             <li>✓ Wipes PDF XMP & Author tags in RAM</li>
             <li>✓ No temporary files, zero logging</li>
             <li>✓ 100% Forever Free & Open Source</li>
@@ -146,7 +146,7 @@ function App() {
               type="file" 
               ref={fileInputRef} 
               onChange={handleFileSelect} 
-              accept="image/jpeg, image/png, application/pdf"
+              accept="image/jpeg, image/png, image/webp, application/pdf"
               multiple
               hidden
             />
@@ -163,7 +163,7 @@ function App() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
                   </svg>
                   <h2>Drop your file to sanitize</h2>
-                  <p>Supports <strong>JPEG</strong>, <strong>PNG</strong> & <strong>PDF</strong></p>
+                  <p>Supports <strong>JPEG</strong>, <strong>PNG</strong>, <strong>WebP</strong> & <strong>PDF</strong></p>
                   <button className="btn-primary">Browse Files</button>
                 </>
               )}
