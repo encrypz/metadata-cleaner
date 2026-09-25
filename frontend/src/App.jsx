@@ -24,64 +24,78 @@ function App() {
     
     const files = e.dataTransfer.files;
     if (files.length > 0) {
-      await processFile(files[0]);
+      await processFiles(Array.from(files));
     }
   };
 
   const handleFileSelect = async (e) => {
     const files = e.target.files;
     if (files.length > 0) {
-      await processFile(files[0]);
+      await processFiles(Array.from(files));
     }
   };
 
-  const processFile = async (file) => {
-    const validTypes = ['image/jpeg', 'image/png', 'application/pdf'];
-    if (!validTypes.includes(file.type)) {
-      setMessage('Unsupported file type. Please upload a JPEG, PNG, or PDF.');
-      return;
+  const processFiles = async (files) => {
+    setIsProcessing(true);
+    let successCount = 0;
+    let errorCount = 0;
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      setMessage(`Scrubbing metadata from ${file.name} (${i + 1}/${files.length})...`);
+
+      const validTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+      if (!validTypes.includes(file.type)) {
+        errorCount++;
+        continue;
+      }
+
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        const apiUrl = process.env.NODE_ENV === 'development' 
+          ? 'http://localhost:8000/api/clean' 
+          : '/api/clean';
+
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.detail || 'Failed to process file');
+        }
+
+        const blob = await response.blob();
+        const downloadUrl = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.setAttribute('download', `clean_${file.name}`);
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.URL.revokeObjectURL(downloadUrl);
+
+        successCount++;
+      } catch (error) {
+        console.error(error);
+        errorCount++;
+      }
     }
 
-    setIsProcessing(true);
-    setMessage(`Scrubbing metadata from ${file.name}...`);
+    setIsProcessing(false);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
 
-    const formData = new FormData();
-    formData.append('file', file);
-
-    try {
-      const apiUrl = process.env.NODE_ENV === 'development' 
-        ? 'http://localhost:8000/api/clean' 
-        : '/api/clean';
-
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.detail || 'Failed to process file');
-      }
-
-      const blob = await response.blob();
-      const downloadUrl = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = downloadUrl;
-      link.setAttribute('download', `clean_${file.name}`);
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      window.URL.revokeObjectURL(downloadUrl);
-
-      setMessage(`Success! Metadata stripped losslessly from ${file.name}.`);
-    } catch (error) {
-      console.error(error);
-      setMessage(error.message);
-    } finally {
-      setIsProcessing(false);
-      if (fileInputRef.current) {
-        fileInputRef.current.value = '';
-      }
+    if (successCount > 0 && errorCount === 0) {
+      setMessage(`Success! Metadata stripped losslessly from ${successCount} file(s).`);
+    } else if (successCount > 0 && errorCount > 0) {
+      setMessage(`Success for ${successCount} file(s). Failed for ${errorCount} file(s).`);
+    } else if (errorCount > 0) {
+      setMessage(`Failed to process the uploaded file(s).`);
     }
   };
 
@@ -133,6 +147,7 @@ function App() {
               ref={fileInputRef} 
               onChange={handleFileSelect} 
               accept="image/jpeg, image/png, application/pdf"
+              multiple
               hidden
             />
             
