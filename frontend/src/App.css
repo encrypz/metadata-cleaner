@@ -2463,8 +2463,8 @@ body {
   width: 32px;
   height: 32px;
   border-radius: 9px;
-  background: var(--grad);
-  box-shadow: 0 5px 20px rgba(63, 130, 255, 0.35);
+  background: transparent;
+  box-shadow: none;
 }
 
 .logo-wrap img {
