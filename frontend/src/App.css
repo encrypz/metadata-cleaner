@@ -2357,24 +2357,24 @@ body {
    Dark zero-knowledge product UI with blue security accents.
    ========================================================= */
 :root {
-  --bg: #07090d;
-  --bg-2: #0b1018;
-  --surface: #0d131d;
-  --surface-2: #111925;
-  --border: rgba(130, 155, 205, 0.17);
-  --border-strong: rgba(130, 155, 205, 0.32);
-  --text: #f7f9ff;
-  --text-2: #a6b0c2;
-  --text-3: #69758a;
-  --blue: #3f82ff;
-  --cyan: #58a6ff;
-  --violet: #7b8cff;
-  --pink: #8c83ff;
+  --bg: #0a0a0a;
+  --bg-2: #020d1c;
+  --surface: #0d1117;
+  --surface-2: #111827;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --text: #ffffff;
+  --text-2: #a1a1aa;
+  --text-3: #71717a;
+  --blue: #3b82f6;
+  --cyan: #60a5fa;
+  --violet: #3b82f6;
+  --pink: #60a5fa;
   --green: #43d39c;
   --amber: #f2b866;
   --red: #ff7777;
-  --grad: linear-gradient(135deg, #4388ff, #756eff);
-  --grad-ai: linear-gradient(135deg, #756eff, #a57cff);
+  --grad: linear-gradient(135deg, #3b82f6, #60a5fa);
+  --grad-ai: linear-gradient(135deg, #3b82f6, #60a5fa);
   --radius-sm: 8px;
   --radius: 14px;
   --radius-lg: 22px;
@@ -2385,13 +2385,13 @@ body {
 
 body {
   background:
-    radial-gradient(900px 520px at 50% -180px, rgba(40, 87, 174, 0.24), transparent 72%),
-    radial-gradient(600px 460px at 90% 24%, rgba(55, 52, 145, 0.1), transparent 72%),
+    radial-gradient(900px 520px at 50% -180px, rgba(30, 64, 125, 0.2), transparent 72%),
+    radial-gradient(600px 460px at 90% 24%, rgba(30, 64, 125, 0.08), transparent 72%),
     var(--bg);
   background-image:
-    radial-gradient(900px 520px at 50% -180px, rgba(40, 87, 174, 0.24), transparent 72%),
-    linear-gradient(rgba(130, 155, 205, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(130, 155, 205, 0.025) 1px, transparent 1px);
+    radial-gradient(900px 520px at 50% -180px, rgba(30, 64, 125, 0.2), transparent 72%),
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
   background-size: auto, 64px 64px, 64px 64px;
 }
 
@@ -2405,8 +2405,8 @@ body {
   opacity: 0.55;
   background-size: 64px 64px;
   background-image:
-    linear-gradient(rgba(130, 155, 205, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(130, 155, 205, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   mask-image: radial-gradient(ellipse 75% 55% at 50% 0%, #000 12%, transparent 78%);
 }
 
@@ -2441,7 +2441,7 @@ body {
   padding: 0.45rem 0.5rem 0.45rem 1rem;
   border: 1px solid rgba(130, 155, 205, 0.17);
   border-radius: 999px;
-  background: rgba(9, 14, 23, 0.72);
+  background: rgba(2, 13, 28, 0.6);
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
