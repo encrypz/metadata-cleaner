@@ -3139,3 +3139,300 @@ body {
     height: 42px;
   }
 }
+
+/* Authoritative phone layout. Keep this block last so older responsive
+   iterations above cannot re-introduce desktop sizing on narrow screens. */
+@media screen and (max-width: 767px) {
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .page {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-top: 0;
+    padding-inline: max(0.75rem, env(safe-area-inset-left)) max(0.75rem, env(safe-area-inset-right));
+  }
+
+  .navbar-wrapper {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 2.25rem;
+    padding-top: max(0.5rem, env(safe-area-inset-top));
+  }
+
+  .navbar {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .nav-brand {
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .nav-brand .brand-accent {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-capsule,
+  .desktop-only {
+    display: none !important;
+  }
+
+  .nav-cta {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .hero {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-copy {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  .hero-title {
+    width: 100%;
+    max-width: 11ch;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: clamp(2.75rem, 14vw, 4.5rem);
+  }
+
+  .hero-sub {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .cleaner-card {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-top: 1.5rem;
+    padding: 0.65rem;
+  }
+
+  .drop-zone {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 260px;
+    overflow: hidden;
+  }
+
+  .drop-text {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .drop-text h2,
+  .drop-text p {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .drop-zone.compact {
+    flex-direction: row;
+    min-height: 68px;
+    text-align: left;
+  }
+
+  .drop-zone.compact .drop-icon {
+    flex: 0 0 42px;
+  }
+
+  .drop-zone.compact .drop-text {
+    flex: 1 1 auto;
+  }
+
+  .drop-zone.compact .drop-text h2,
+  .drop-zone.compact .drop-text p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .options-row,
+  .queue-head,
+  .overall-progress,
+  .file-list,
+  .summary-bar {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .toggle-label {
+    min-width: 0;
+  }
+
+  .toggle-label small {
+    display: block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .file-list {
+    display: grid;
+    overflow: visible;
+  }
+
+  .file-row {
+    display: grid;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+  }
+
+  .file-info {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .file-title,
+  .file-meta {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .file-name {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .file-actions {
+    min-width: 0;
+    flex-shrink: 0;
+  }
+
+  .chips {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .summary-bar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-pills,
+  .summary-actions {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .stat-pills {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stat-pill {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .summary-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .summary-actions .btn {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mobile-only {
+    display: flex !important;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .hero-extras {
+    overflow: hidden;
+  }
+
+  .hero-extras .hero-points {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-extras .platforms {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .section-head,
+  .explain-grid,
+  .remove-grid,
+  .bento {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .explain-grid,
+  .remove-grid,
+  .bento {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bento-wide {
+    grid-column: auto;
+  }
+
+  .explain-card,
+  .remove-item,
+  .bento-card,
+  .note-card {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .note-card {
+    overflow-wrap: anywhere;
+  }
+
+  .footer {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+}
