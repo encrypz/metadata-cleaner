@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "fflate": "^0.8.3",
+    "jsdom": "^30.1.2",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },

@@ -6,14 +6,30 @@
 ![Vite](https://img.shields.io/badge/Vite-5.0-646CFF.svg?logo=vite)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-**Encrypz Metadata Cleaner** is a privacy-first, zero-disk web application designed to strip hidden metadata (EXIF, APP1, XMP) from JPEGs and PDFs. Built as a companion tool for the [Encrypz](https://encrypz.com) ecosystem, it prioritizes verifiable privacy through a 100% in-memory processing architecture.
+**Encrypz Metadata Cleaner** is a privacy-first, zero-disk web application that strips hidden metadata and AI labels from photos (JPEG, PNG, WebP) and PDFs before you share them on social media. Built as a companion tool for the [Encrypz](https://encrypz.com) ecosystem, it prioritizes verifiable privacy through a 100% in-memory processing architecture.
 
 ## ✨ Features
 
+- **Removes AI Label Triggers**: Strips C2PA Content Credentials (JPEG APP11/JUMBF, PNG `caBX`, WebP chunks), IPTC `DigitalSourceType` (`trainedAlgorithmicMedia`) in XMP, and generator prompts/parameters (Stable Diffusion, ComfyUI, Midjourney, ChatGPT/DALL-E, Firefly...) - the metadata Instagram, Facebook, Threads, TikTok and LinkedIn read to show "AI info" labels.
+- **Privacy Scrub**: GPS, camera/device model, serial numbers, timestamps, author, editing history, embedded thumbnails, MPF data and anything appended after the image end.
+- **Bulk Upload + ZIP Download**: Drop many files at once; they are processed in parallel and can be downloaded individually or as a single ZIP (built in the browser).
+- **Filename Randomizer**: Optionally renames outputs (e.g. `ChatGPT Image...png` -> `IMG_8F3A12C4.png`) so filenames don't give you away.
+- **Removal Report**: Each file shows exactly what was found and removed.
 - **Zero-Disk Architecture**: The FastAPI backend utilizes strict `io.BytesIO` buffers. Files are processed entirely in RAM and never written to the server's physical disk—preventing data leaks and scraping.
-- **Lossless Image Quality**: Employs pure byte manipulation via `piexif` to surgically remove EXIF markers from JPEGs without decoding/re-encoding, preserving 100% of the original visual quality.
+- **Lossless Image Quality**: Parses JPEG segments, PNG chunks and WebP RIFF chunks directly, removing metadata without decoding/re-encoding, preserving 100% of the original visual quality.
 - **Native PDF Sanitization**: Uses `PyMuPDF` to wipe document-level XMP, XML tags, and author history without rasterizing or re-rendering the PDF.
-- **Premium Frontend**: A sleek, fully responsive React (Vite) interface styled to match the Encrypz dark-mode aesthetic with ambient glows and a bento-grid layout.
+- **Premium Frontend**: A sleek, fully responsive React (Vite) interface styled to match the Encrypz dark-mode aesthetic.
+
+> **Note:** Some generators (e.g. Google SynthID) also embed invisible watermarks in the pixels themselves. That is not metadata and is not removed by this tool.
+
+### API
+
+| Endpoint | Body | Returns |
+|---|---|---|
+| `POST /api/clean` | `file` (multipart) | Cleaned file. `X-Clean-Report` header holds a JSON list of removed items. |
+| `POST /api/clean-zip` | `files` (multipart, repeatable, max 100) | ZIP of cleaned files. `X-Clean-Report` header holds a per-file JSON report. |
+
+Files are detected by content (magic bytes), not extension. Max 50 MB per file.
 
 ---
 
