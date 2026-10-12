@@ -513,6 +513,7 @@ async def clean_metadata_zip(files: List[UploadFile] = File(...)):
     )
 
 
-# Mount React static files if running in production (Heroku)
-if os.path.isdir("frontend/dist"):
-    app.mount("/", StaticFiles(directory="frontend/dist", html=True), name="frontend")
+# Mount React static files if running in production
+frontend_dist_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "frontend", "dist")
+if os.path.isdir(frontend_dist_dir):
+    app.mount("/", StaticFiles(directory=frontend_dist_dir, html=True), name="frontend")
