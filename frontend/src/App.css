@@ -3084,7 +3084,8 @@ body {
   }
 
   .hero-extras {
-    margin-top: 0;
+    margin-top: 2.25rem;
+    padding-top: 0.25rem;
   }
 
   .section {
@@ -3198,7 +3199,8 @@ body {
   }
 
   .hero {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     max-width: 100%;
     min-width: 0;
@@ -3206,6 +3208,7 @@ body {
   }
 
   .hero-copy {
+    order: 1;
     display: block;
     width: 100%;
     max-width: 100%;
@@ -3230,6 +3233,7 @@ body {
   }
 
   .cleaner-card {
+    order: 3;
     display: block;
     width: 100%;
     max-width: 100%;
@@ -3372,6 +3376,7 @@ body {
   }
 
   .mobile-only {
+    order: 2;
     display: flex !important;
     width: 100%;
     max-width: 100%;
@@ -3379,6 +3384,8 @@ body {
   }
 
   .hero-extras {
+    margin-top: 1.75rem;
+    margin-bottom: 0.25rem;
     overflow: hidden;
   }
 
@@ -3450,6 +3457,6 @@ body {
 
 @media screen and (max-width: 767px) {
   .cleaner-card {
-    margin-top: 2.25rem;
+    margin-top: 0;
   }
 }
