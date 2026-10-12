@@ -1305,3 +1305,307 @@ body {
     font-size: 0.64rem;
   }
 }
+
+/* Final responsive pass: keep the primary action easy to reach on phones. */
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 76px;
+  }
+
+  body {
+    min-width: 320px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 680px;
+    padding-inline: max(0.75rem, env(safe-area-inset-left)) max(0.75rem, env(safe-area-inset-right));
+  }
+
+  .navbar-wrapper {
+    top: max(0.5rem, env(safe-area-inset-top));
+    margin-bottom: 1.75rem;
+  }
+
+  .navbar {
+    width: 100%;
+    min-height: 54px;
+    padding: 0.4rem 0.45rem 0.4rem 0.55rem;
+    gap: 0.5rem;
+    border-radius: 16px;
+  }
+
+  .nav-brand {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-right: 0;
+    font-size: 0.98rem;
+  }
+
+  .nav-brand .logo-wrap {
+    flex: 0 0 32px;
+  }
+
+  .nav-cta {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding-inline: 0.8rem;
+    font-size: 0.74rem;
+  }
+
+  .hero {
+    gap: 1.35rem;
+    padding-bottom: 2.75rem;
+  }
+
+  .hero-copy {
+    padding-inline: 0.2rem;
+  }
+
+  .eyebrow {
+    max-width: 100%;
+    font-size: 0.69rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .hero-title {
+    max-width: 11ch;
+    font-size: clamp(2.45rem, 12vw, 3.4rem);
+    line-height: 0.96;
+    letter-spacing: -0.055em;
+    margin: 1rem 0 0.9rem;
+  }
+
+  .hero-sub {
+    max-width: 38rem;
+    margin-bottom: 0;
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+
+  .cleaner-card {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 22px;
+  }
+
+  .drop-zone {
+    min-height: 268px;
+    padding: 1.35rem 0.8rem;
+    gap: 0.8rem;
+    border-radius: 16px;
+  }
+
+  .drop-zone.compact {
+    min-height: 72px;
+    padding: 0.65rem 0.7rem;
+    gap: 0.7rem;
+  }
+
+  .drop-zone.compact .drop-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .drop-zone.compact .drop-text {
+    min-width: 0;
+  }
+
+  .drop-zone.compact .drop-text h2,
+  .drop-zone.compact .drop-text p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .drop-zone.compact .drop-badges {
+    display: none;
+  }
+
+  .drop-icon {
+    width: 58px;
+    height: 58px;
+  }
+
+  .drop-text h2 {
+    font-size: 1.18rem;
+  }
+
+  .btn-browse {
+    min-height: 48px;
+    margin-top: 0.15rem;
+  }
+
+  .options-row {
+    padding: 0.9rem 0.25rem 0.25rem;
+  }
+
+  .toggle {
+    align-items: flex-start;
+    gap: 0.7rem;
+  }
+
+  .toggle-track {
+    margin-top: 0.1rem;
+  }
+
+  .toggle-label {
+    line-height: 1.25;
+  }
+
+  .toggle-label small {
+    max-width: 25ch;
+    line-height: 1.35;
+  }
+
+  .queue-head {
+    margin-top: 1rem;
+    padding-inline: 0.25rem;
+  }
+
+  .file-list {
+    max-height: none;
+    overflow: visible;
+    padding: 0.15rem 0;
+    gap: 0.45rem;
+  }
+
+  .file-row {
+    grid-template-columns: 48px minmax(0, 1fr) auto;
+    gap: 0.65rem;
+    padding: 0.65rem;
+    border-radius: 13px;
+  }
+
+  .file-thumb {
+    width: 48px;
+    height: 48px;
+  }
+
+  .file-name {
+    font-size: 0.86rem;
+  }
+
+  .file-meta {
+    font-size: 0.74rem;
+    line-height: 1.35;
+  }
+
+  .chips {
+    max-height: 1.55rem;
+    overflow: hidden;
+  }
+
+  .file-actions {
+    align-self: start;
+  }
+
+  .ai-stamp {
+    display: none;
+  }
+
+  .summary-bar {
+    align-items: stretch;
+    gap: 0.85rem;
+    margin-top: 0.8rem;
+    padding-top: 0.85rem;
+  }
+
+  .stat-pills {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.35rem;
+  }
+
+  .stat-pill {
+    min-width: 0;
+    padding: 0.45rem 0.35rem;
+    text-align: center;
+    font-size: 0.68rem;
+    white-space: nowrap;
+  }
+
+  .summary-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .summary-actions .btn {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .hero-extras {
+    margin-top: 0;
+    gap: 1.25rem;
+  }
+
+  .hero-points {
+    gap: 0.6rem;
+    margin-bottom: 0;
+  }
+
+  .hero-points li {
+    gap: 0.65rem;
+    font-size: 0.83rem;
+    line-height: 1.4;
+  }
+
+  .point-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+  }
+
+  .platforms {
+    padding: 0 0.2rem;
+  }
+
+  .section {
+    padding: 3.25rem 0;
+  }
+
+  .section-head {
+    margin-bottom: 1.65rem;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.8rem, 8vw, 2.25rem);
+  }
+
+  .section-head p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .footer {
+    margin-top: 1rem;
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-title {
+    font-size: 2.55rem;
+  }
+
+  .file-row {
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+  }
+
+  .file-thumb {
+    width: 42px;
+    height: 42px;
+  }
+
+  .file-actions .icon-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .stat-pill {
+    font-size: 0.64rem;
+  }
+}
