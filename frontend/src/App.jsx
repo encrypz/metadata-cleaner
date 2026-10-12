@@ -638,15 +638,22 @@ function App() {
       </section>
 
       <footer className="footer">
-        <div className="footer-brand">
-          <img src={encrypzLogo} alt="" /> Built for the <strong>Encrypz</strong> ecosystem
+        <div className="footer-main">
+          <div className="footer-brand">
+            <span className="footer-logo"><img src={encrypzLogo} alt="" /></span>
+            <span><strong>Encrypz</strong> Cleaner</span>
+          </div>
+          <p className="footer-summary">A focused privacy tool for cleaner, safer image sharing.</p>
+          <div className="footer-links" aria-label="Footer links">
+            <a href="https://encrypz.com/privacy.html">Privacy</a>
+            <a href="https://encrypz.com/terms.html">Terms</a>
+            <a href="https://github.com/Encrypz">GitHub</a>
+          </div>
         </div>
-        <div className="footer-links">
-          <a href="https://encrypz.com/privacy.html">Privacy Policy</a>
-          <a href="https://encrypz.com/terms.html">Terms</a>
-          <a href="https://github.com/Encrypz">GitHub</a>
+        <div className="footer-bottom">
+          <span>Open source · No accounts · No tracking</span>
+          <p className="copyright">© 2026 Encrypz. All rights reserved.</p>
         </div>
-        <p className="copyright">© 2026 Encrypz. All rights reserved.</p>
       </footer>
     </div>
   );
