@@ -3436,3 +3436,20 @@ body {
     min-width: 0;
   }
 }
+
+/* Keep the promise list visually distinct from the upload workspace. */
+@media screen and (min-width: 768px) {
+  .hero-copy {
+    padding-right: clamp(1rem, 2.5vw, 2.5rem);
+  }
+
+  .hero-copy .platforms {
+    margin-top: 2.25rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cleaner-card {
+    margin-top: 2.25rem;
+  }
+}

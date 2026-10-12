@@ -379,7 +379,6 @@ function App() {
 
       <div className="hero" id="top">
         <header className="hero-copy">
-          <span className="eyebrow"><span className="pulse-dot" /> Free · Open source · Zero-disk</span>
           <h1 className="hero-title">
             Post your photos.<br />
             <span className="gradient-text">Not your metadata.</span>
